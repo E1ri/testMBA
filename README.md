@@ -1,3 +1,6 @@
 # testMBA
-> yarn
-> yarn preview
+
+```
+yarn
+yarn preview
+```
