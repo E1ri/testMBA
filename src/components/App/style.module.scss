@@ -1,0 +1,33 @@
+.app {
+  padding: 71px 16vw;
+}
+
+@media (max-width: 2700px) {
+  .app {
+    padding: 71px 22vw;
+  }
+}
+
+@media (max-width: 2300px) {
+  .app {
+    padding: 71px 18vw;
+  }
+}
+
+@media (max-width: 1920px) {
+  .app {
+    padding: 71px 16vw;
+  }
+}
+
+@media (max-width: 1800px) {
+  .app {
+    padding: 71px 5vw;
+  }
+}
+
+@media (max-width: 1150px) {
+  .app {
+    padding: 28px 15px;
+  }
+}

@@ -1,0 +1,103 @@
+@mixin card-default {
+  padding: 56px 71px;
+  min-height: 181px;
+  width: 50%;
+  @media (max-width: 1150px) {
+    width: fit-content;
+  }
+  @media (max-width: 650px) {
+    padding: 31px 17px;
+  }
+  @media (max-width: 470px) {
+    min-height: auto;
+  }
+}
+
+@mixin card-text-default {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  &__red {
+    position: relative;
+    @include card-default();
+    margin-right: 30px;
+    background-color: #ff3535;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-width: 0 43px 43px 0;
+      border-style: solid;
+      border-color: #cd1800 #fff;
+    }
+  }
+  &__title {
+    margin: 0 0 24px 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 120%;
+  }
+  &__red_text {
+    margin: 0;
+    @include card-text-default();
+  }
+  &__gray {
+    @include card-default();
+    background-color: #2d2c2a;
+  }
+  &__gray_list {
+    margin: 0;
+    padding: 0;
+  }
+  &__gray_item {
+    @include card-text-default();
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &::marker {
+      color: #ff3535;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .cards {
+    align-items: center;
+    flex-direction: column;
+    &__red {
+      margin-right: 0;
+      margin-bottom: 23px;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .cards {
+    justify-content: safe;
+  }
+}
+
+@media (max-width: 650px) {
+  .cards {
+    &__title {
+      font-size: 25px;
+      line-height: 120%;
+      margin-bottom: 25px;
+    }
+    &__red::before {
+      border-width: 0 26px 26px 0;
+    }
+    &__gray_list {
+      padding: 0 0 0 15px;
+    }
+  }
+}
