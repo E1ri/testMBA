@@ -1,1 +1,3 @@
 # testMBA
+> yarn
+> yarn preview
