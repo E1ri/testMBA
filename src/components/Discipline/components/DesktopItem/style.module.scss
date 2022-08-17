@@ -1,14 +1,21 @@
 .discipline {
-  &__title {
-    margin: 0 0 54px 0;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 120%;
+  &__container {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 .module {
+  display: flex;
+  &__title {
+    margin: 0;
+    padding-top: 30px;
+    border-top: 2px solid #ff3535;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+  }
   &__list {
     margin: 0 0 0 81px;
     padding: 30px 0 0 0;
@@ -33,15 +40,10 @@
   }
 }
 
-.accordion_container {
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
 @media (max-width: 1400px) {
-  .discipline__title {
-    text-align: center;
+  .discipline__container {
+    flex-direction: column;
+    align-items: center;
   }
   .module__list {
     margin: 0 0 0 50px;
@@ -49,18 +51,5 @@
   }
   .module__list_item {
     margin-bottom: 50px;
-  }
-}
-@media (max-width: 600px) {
-  .discipline__title {
-    text-align: left;
-    margin-bottom: 26px;
-  }
-  .module__list {
-    margin: 0;
-    padding: 0;
-  }
-  .module__list_item {
-    margin-bottom: 0;
   }
 }

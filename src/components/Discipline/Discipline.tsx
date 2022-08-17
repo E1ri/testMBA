@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { specializedSubjects } from '../../types/specializedSubject'
 import { Accordion } from '../Accordion/Accordion'
+import { DesktopItem } from './components/DesktopItem/DesktopItem'
 import styles from './style.module.scss'
 
 type Props = {
@@ -9,13 +10,13 @@ type Props = {
   title: string
 }
 
-type ListItems = {
+export type ListItems = {
   first: specializedSubjects[]
   second: specializedSubjects[]
 }
 
 export const Discipline: React.FC<Props> = ({ items, title }): JSX.Element => {
-  const [listItems, setListItems] = useState<ListItems | null>()
+  const [listItems, setListItems] = useState<ListItems | null>(null)
   const widthNumber = useWindowSize()
 
   useEffect(() => {
@@ -29,34 +30,7 @@ export const Discipline: React.FC<Props> = ({ items, title }): JSX.Element => {
     <div className={styles.discipline}>
       <h2 className={styles.discipline__title}>{title}</h2>
       {widthNumber !== null && widthNumber >= 900 ? (
-        <div className={styles.discipline__container}>
-          <div className={styles.module}>
-            <p className={styles.module__title}>1 модуль</p>
-            <ul className={styles.module__list}>
-              {listItems &&
-                listItems.first.map((el) => {
-                  return (
-                    <li key={el.id} className={styles.module__list_item}>
-                      {el.string}
-                    </li>
-                  )
-                })}
-            </ul>
-          </div>
-          <div className={styles.module}>
-            <p className={styles.module__title}>2 модуль</p>
-            <ul className={styles.module__list}>
-              {listItems &&
-                listItems.second.map((el) => {
-                  return (
-                    <li key={el.id} className={styles.module__list_item}>
-                      {el.string}
-                    </li>
-                  )
-                })}
-            </ul>
-          </div>
-        </div>
+        <DesktopItem listItems={listItems} />
       ) : (
         <>
           <div className={styles.accordion_container}>
